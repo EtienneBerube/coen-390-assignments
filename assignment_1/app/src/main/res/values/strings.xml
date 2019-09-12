@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gradr.io</string>
+    <string name="main_activity_welcome">Welcome to Grade Viewer</string>
+    <string name="main_activity_button_grade">Show my grades</string>
+</resources>

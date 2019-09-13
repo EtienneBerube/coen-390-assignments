@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Recycle View Adapter for the nested recycle view for the grade layout. This adapter binds the Assignment and grade.
+ * @param <T> Either a Double or a String (Depending if the grade is a letter or a number)
+ */
 public class CourseInnerAdapter<T> extends RecyclerView.Adapter<CourseInnerAdapter.CourseInnerViewHolder>{
     private List<Map.Entry<String, T>> grades;
 

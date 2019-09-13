@@ -39,6 +39,9 @@ public class GradeActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Creates between 1 and 5 difference classes
+     */
     private void setupRandomData() {
 
         store = new CourseStore();
@@ -51,15 +54,21 @@ public class GradeActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Acts when a item in the action bar is pressed
+     * @param item The selected item
+     * @return if the action was performed
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                // app icon in action bar clicked; go home
+                // When the arrow is pressed -> go home
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.show_letter_grades:
+                // When the checkbox is checked, toggle the way to see grades
                 ((CourseAdapter) recyclerView.getAdapter()).setIsLetterGrade(!item.isChecked());
                 item.setChecked(!item.isChecked());
                 super.onOptionsItemSelected(item);
@@ -73,11 +82,6 @@ public class GradeActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.grade_activity_recycler);
 
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        // specify an adapter (see also next example)
         adapter = new CourseAdapter(store.getCourses(), this);
 
         recyclerView.setAdapter(adapter);

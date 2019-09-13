@@ -11,6 +11,8 @@ public class Course {
 
         this.name = name;
 
+        //Creates between 0 and 7 assignments for this course
+
         int numberOfAssignments = (int) (Math.random() * 7) + 0;
 
         for (int i = 1; i < numberOfAssignments; i++) {
@@ -27,6 +29,10 @@ public class Course {
         this.name = name;
     }
 
+    /**
+     * Sends a Map of the assignment name and the grade as a number
+     * @return
+     */
     public HashMap<String, Double> getGrades() {
         return grades;
     }
@@ -35,12 +41,22 @@ public class Course {
         this.grades = grades;
     }
 
+
+    /**
+     * Sends a Map of the assignment name and the grade as a letter
+     * @return
+     */
     public HashMap<String, String> getGradesAsLetters() {
         HashMap<String, String> gradesAsString = new HashMap<>();
         grades.entrySet().forEach((entry) -> gradesAsString.put(entry.getKey(), getLetterGrade(entry.getValue())));
         return gradesAsString;
     }
 
+    /**
+     * Returns the letter equivalent to a number
+     * @param grade the grade as a Double
+     * @return
+     */
     private String getLetterGrade(Double grade) {
         if (grade >= 90) {
             return "A+";

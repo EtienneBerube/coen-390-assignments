@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 public class Course {
     private String name;
-    private HashMap<String, Double> grades;
+    private HashMap<String, Double> grades = new HashMap<>();
 
 
     public Course(String name) {
 
         this.name = name;
 
-        int numberOfAssignments = (int) Math.random() * 7 + 1;
+        int numberOfAssignments = (int) (Math.random() * 7) + 0;
 
         for (int i = 1; i < numberOfAssignments; i++) {
             grades.put("Assignment " + i, Math.floor(Math.random() * 56) + 45); // get grade between 45 and 100
@@ -69,5 +69,13 @@ public class Course {
         } else {
             return "F";
         }
+    }
+
+    public Double getAverage(){
+        return grades.entrySet().stream().mapToDouble(entry -> entry.getValue()).sum() / grades.size();
+    }
+
+    public String getAverageLetter(){
+        return getLetterGrade(getAverage());
     }
 }

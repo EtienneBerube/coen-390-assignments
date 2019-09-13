@@ -2,4 +2,6 @@
     <string name="app_name">Gradr.io</string>
     <string name="main_activity_welcome">Welcome to Grade Viewer</string>
     <string name="main_activity_button_grade">Show my grades</string>
+    <string name="show_your_letter_grades">Show your letter grades</string>
+    <string name="no_assignments">There are no assignments for this class</string>
 </resources>

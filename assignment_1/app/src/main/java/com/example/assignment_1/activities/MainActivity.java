@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupUi();
-        setupLogic();
+        setupAction();
     }
 
-    private void setupLogic() {
+    private void setupAction() {
         this.gradesButton.setOnClickListener((view)->navigateToGrades());
     }
 

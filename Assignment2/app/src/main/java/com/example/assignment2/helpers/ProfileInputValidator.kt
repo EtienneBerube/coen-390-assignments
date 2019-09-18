@@ -4,14 +4,16 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 
-abstract class ProfileInputValidator(val textView: TextView, val maxChar: Int?, val containsNumbers: Boolean = true): TextWatcher {
+abstract class ProfileInputValidator(val textView: TextView, val maxChar: Int?, val minChar: Int?,  val containsNumbers: Boolean = true): TextWatcher {
 
     var isValid = true
 
     override fun afterTextChanged(s: Editable?) {
-        if (!validate(textView.text as String)){
+        if (!validate(textView.text.toString())){
             isValid = false
-            textView.setError("")
+        }else{
+            textView.error = null
+            isValid = true
         }
     }
 

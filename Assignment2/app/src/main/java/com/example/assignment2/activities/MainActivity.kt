@@ -7,11 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.assignment2.R
 import com.example.assignment2.helpers.SharedPreferenceHelper
 
-
-
-
-
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
@@ -23,18 +18,20 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferenceHelper = SharedPreferenceHelper(this@MainActivity)
 
-        profileButton = findViewById<Button>(R.id.profile_button)
+        profileButton = findViewById(R.id.save_button)
 
         profileButton.setOnClickListener {goToProfileActivity()}
     }
 
     override fun onStart() {
         super.onStart()
-        val name = sharedPreferenceHelper.profileName
-        if (name == null)
+
+        val profil = sharedPreferenceHelper.profile
+
+        if (profil == null)
             goToProfileActivity()
         else
-            profileButton.text = name
+            profileButton.text = profil.name
     }
 
     private fun goToProfileActivity() {

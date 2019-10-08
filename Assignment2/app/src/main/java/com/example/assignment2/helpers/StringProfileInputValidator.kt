@@ -6,8 +6,8 @@ class StringProfileInputValidator(
     textView: TextView,
     maxChar: Int?,
     minChar: Int?,
-    containsNumbers: Boolean = true
-) : ProfileInputValidator(textView, maxChar, minChar, containsNumbers) {
+    containsNumbers: Boolean = true,
+    val acceptNonAsciiCharacters: Boolean = true) : ProfileInputValidator(textView, maxChar, minChar, containsNumbers) {
     override fun validate(text: String): Boolean {
         try {
             if (maxChar != null && text.length > maxChar) {
@@ -26,6 +26,13 @@ class StringProfileInputValidator(
                 textView.error = "Text cannot contain digits"
                 return false
             }
+
+            val hasNonAscii = text.toCharArray().any { (it.toInt()) >= 128 }
+            if(!acceptNonAsciiCharacters && hasNonAscii){
+                textView.error = "Text can only contain Ascii characters [a-z, A-Z, 0-9 or other special characters]"
+                return false
+            }
+
         } catch (ex: NumberFormatException) {
             textView.error = "Number cannot be letters (DUH)"
             return false

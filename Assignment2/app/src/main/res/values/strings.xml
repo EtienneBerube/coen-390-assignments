@@ -3,4 +3,5 @@
     <string name="profile_name_shared_resource">profileName</string>
     <string name="profile_age_shared_resource">profileAge</string>
     <string name="profile_student_id_shared_resource">profileStudentId</string>
+    <string name="acceptable_characters">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -</string>
 </resources>

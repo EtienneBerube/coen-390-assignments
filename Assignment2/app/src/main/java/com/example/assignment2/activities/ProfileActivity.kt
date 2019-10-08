@@ -93,7 +93,7 @@ class ProfileActivity : AppCompatActivity() {
         sharedPreferenceHelper = SharedPreferenceHelper(this@ProfileActivity)
 
         nameText = findViewById(R.id.name_textview)
-        nameText.addTextChangedListener(StringProfileInputValidator(nameText, null,null, false))
+        nameText.addTextChangedListener(StringProfileInputValidator(nameText, null,null, false, false))
 
         ageText = findViewById(R.id.age_textview)
         ageText.addTextChangedListener(NumberProfileInputValidator(ageText, null, null, 18,99))
@@ -119,7 +119,7 @@ class ProfileActivity : AppCompatActivity() {
 
     fun saveInfo(){
         if(!validate()){
-            val toast = Toast.makeText(applicationContext, "Cannot save current profile. It is incomplete", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Cannot save current profile. It is incomplete or contains errors", Toast.LENGTH_SHORT)
             toast.show()
         }else{
             profile = Profile(nameText.text.toString(),ageText.text.toString().toInt(), studentIdText.text.toString().toInt())

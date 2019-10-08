@@ -26,18 +26,16 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val profil = sharedPreferenceHelper.profile
+        val profile = sharedPreferenceHelper.profile
 
-        if (profil == null)
+        if (profile == null)
             goToProfileActivity()
         else
-            profileButton.text = profil.name
+            profileButton.text = "${profile.name}\'s profile"
     }
 
     private fun goToProfileActivity() {
         val intent = Intent(this@MainActivity, ProfileActivity::class.java)
         startActivity(intent)
     }
-
-
 }

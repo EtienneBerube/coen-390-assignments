@@ -10,16 +10,16 @@ import com.example.assignment3.models.Assignment
 interface AssignmentDao {
 
     @Query("SELECT * FROM assignment")
-    fun getAll(): List<Assignment>
+    fun getAll(): MutableList<Assignment>
 
     @Query("SELECT * FROM assignment WHERE id IN (:assignmentIds)")
-    fun loadAllByIds(assignmentIds: IntArray): List<Assignment>
+    fun loadAllByIds(assignmentIds: IntArray): MutableList<Assignment>
 
     @Query("SELECT * FROM assignment WHERE name LIKE :name LIMIT 1")
     fun findByName(name: String): Assignment
 
     @Query("SELECT * FROM assignment WHERE courseId = :courseId")
-    fun getAllAssignmentsForCourse(courseId: Int): List<Assignment>
+    fun getAllAssignmentsForCourse(courseId: Int): MutableList<Assignment>
 
     @Insert
     fun insertAll(vararg course: Assignment)

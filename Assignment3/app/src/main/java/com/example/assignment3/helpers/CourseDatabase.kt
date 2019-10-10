@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.assignment3.models.Assignment
 import com.example.assignment3.models.Course
 
-@Database(entities = arrayOf(Course::class, Assignment::class), version = 1)
+@Database(entities = arrayOf(Course::class, Assignment::class), version = 2)
 abstract class CourseDatabase : RoomDatabase() {
 
     companion object Creator {
@@ -16,10 +16,11 @@ abstract class CourseDatabase : RoomDatabase() {
                 context,
                 CourseDatabase::class.java, "Course-DB"
             ).allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
         }
     }
 
     abstract fun courseDao(): CourseDao
-    abstract fun AssignmentDao(): AssignmentDao
+    abstract fun assignmentDao(): AssignmentDao
 }

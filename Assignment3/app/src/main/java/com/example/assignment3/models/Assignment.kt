@@ -14,7 +14,7 @@ data class Assignment(@PrimaryKey(autoGenerate = true)
                       val id: Int,
                       @ColumnInfo(name = "name") val name: String,
                       @ColumnInfo(name = "grade") val grade: Double,
-                      @ColumnInfo(name = "courseId") val courseId: String) {
+                      @ColumnInfo(name = "courseId") val courseId: Int) {
 
     fun getGradeAsLetter(): String {
         return if (grade >= 90) {

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp">
+
+    <EditText
+        android:id="@+id/assignment_creation_name"
+        android:layout_width="242dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/assignment_creation_grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:hint="Grade (0-100)"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/assignment_creation_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="%"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/assignment_creation_grade"
+        app:layout_constraintTop_toBottomOf="@+id/assignment_creation_name" />
+
+    <Button
+        android:id="@+id/assignment_creation_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="save"
+        app:layout_constraintStart_toStartOf="@+id/assignment_creation_grade"
+        app:layout_constraintTop_toBottomOf="@+id/assignment_creation_grade" />
+
+    <Button
+        android:id="@+id/assignment_creation_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@android:string/cancel"
+        app:layout_constraintEnd_toEndOf="@+id/assignment_creation_name"
+        app:layout_constraintTop_toBottomOf="@+id/assignment_creation_grade" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Assignment"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/assignment_creation_name"
+        tools:layout_editor_absoluteY="-6dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

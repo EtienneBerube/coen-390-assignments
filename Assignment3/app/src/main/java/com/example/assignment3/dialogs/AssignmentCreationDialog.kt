@@ -11,11 +11,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.assignment3.R
-import android.graphics.Color
-import android.widget.TextView
-
-
-
 
 
 class AssignmentCreationDialog : DialogFragment() {
@@ -71,7 +66,7 @@ class AssignmentCreationDialog : DialogFragment() {
     }
 
     fun isValidateForm(): Boolean{
-        return nameEditText.text.isNotBlank() && gradeEditText.text.isBlank()
+        return nameEditText.text.isNotBlank() && gradeEditText.text.isNotBlank()
     }
 
     interface AssignmentCreationListener {

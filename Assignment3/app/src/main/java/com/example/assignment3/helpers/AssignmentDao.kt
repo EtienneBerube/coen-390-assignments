@@ -1,10 +1,8 @@
 package com.example.assignment3.helpers
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.assignment3.models.Assignment
+import com.example.assignment3.models.Course
 
 @Dao
 interface AssignmentDao {
@@ -20,6 +18,16 @@ interface AssignmentDao {
 
     @Query("SELECT * FROM assignment WHERE courseId = :courseId")
     fun getAllAssignmentsForCourse(courseId: Int): MutableList<Assignment>
+
+    @Transaction
+    fun getAverageForAll(): Double{
+        val assignments = getAll()
+
+        if (assignments.isEmpty())
+            return 0.0
+        else
+            return assignments.sumByDouble { it.grade } / assignments.size
+    }
 
     @Insert
     fun insertAll(vararg course: Assignment)

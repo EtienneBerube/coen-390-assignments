@@ -26,8 +26,8 @@ class AssignmentAdapter(var assignments: MutableList<Assignment>, val dao: Assig
     }
 
     override fun onBindViewHolder(holder: AssignmentViewHolder, position: Int) {
-        holder.assignmentGrade.text = "${assignments[position].grade}"
         holder.assignmentName.text = assignments[position].name
+        holder.assignmentGrade.text = "${assignments[position].grade}"
         holder.deleteButton.setOnClickListener {
             dao.delete(assignments[position])
             notifyItemRemoved(position)

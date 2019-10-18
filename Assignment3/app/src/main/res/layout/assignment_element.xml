@@ -5,19 +5,21 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
     android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:paddingTop="5dp"
-    android:paddingRight="5dp"
-    android:paddingBottom="5dp">
+    android:padding="5dp">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="75dp"
-        app:cardCornerRadius="5dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
         app:contentPadding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,16 +32,17 @@
                 android:id="@+id/assignment_grade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="8dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/assignment_name"
-                app:layout_constraintTop_toBottomOf="@+id/course_name" />
+                app:layout_constraintTop_toBottomOf="@+id/assignment_name"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/assignment_name"
-                android:layout_width="138dp"
-                android:layout_height="36dp"
+                android:layout_width="308dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="162dp"
@@ -54,14 +57,11 @@
                 android:id="@+id/delete_assignment_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/course_name"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@android:drawable/ic_menu_delete" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

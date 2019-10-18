@@ -1,6 +1,7 @@
 package com.example.assignment3.activities
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity(), CourseCreationDialog.CourseCreationLis
     lateinit var db: CourseDatabase
     lateinit var courses: MutableList<Course>
     lateinit var addCourseButton: FloatingActionButton
+    lateinit var average: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +54,10 @@ class MainActivity : AppCompatActivity(), CourseCreationDialog.CourseCreationLis
         addCourseButton.setOnClickListener {
             val courseCreationDialog = CourseCreationDialog()
             courseCreationDialog.show(supportFragmentManager,"Course Creator")
-
         }
+
+        average = findViewById(R.id.course_total_average)
+        average.text = "Average: ${db.assignmentDao().getAverageForAll()}%"
 
     }
 
